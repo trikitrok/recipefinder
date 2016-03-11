@@ -7,10 +7,18 @@
     <td>Social Rank</td> 
   </thead>
 
-  <% @recipes.each do |recipe| %>
+  <% extract_recipes_data(@recipes).each do |recipe| %>
     <tr>
-      <td><%= image_tag(recipe[:thumbnail], width: 100, height: 100) %></td>
-      <td><%= sanitize(recipe[:title]) %></td>
+      <td>
+        <a href='<%= recipe[:url] %>'>
+          <%= image_tag(recipe[:thumbnail], width: 100, height: 100) %>
+        </a>
+      </td>
+      <td>
+        <a href='<%= recipe[:url] %>'>
+          <%= sanitize(recipe[:title]) %>
+        </a>
+      </td>
       <td><%= recipe[:social_rank] %></td>
     </tr>
   <%end%>
